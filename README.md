@@ -45,6 +45,7 @@ Full stack App (API and React frontend) providing data for Jobs, with authentica
 
 ### frontend
 
+- cd frontend
 - npm install
 - configure .env with VITE_BASEURL_DEV/ axios.js with baseURL
 - npm run dev
@@ -52,6 +53,7 @@ Full stack App (API and React frontend) providing data for Jobs, with authentica
 
 ### backend
 
+- cd backend
 - npm install
 - configure .env file with .. (to be completed)
 - npm start
