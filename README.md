@@ -47,7 +47,7 @@ Full stack App (API and React frontend) providing data for Jobs, with authentica
 
 - cd frontend
 - npm install
-- configure .env with VITE_BASEURL_DEV/ axios.js with baseURL
+- configure .env with VITE_BASEURL
 - npm run dev
 - connect from the browser to localhost:5173
 
@@ -55,6 +55,6 @@ Full stack App (API and React frontend) providing data for Jobs, with authentica
 
 - cd backend
 - npm install
-- configure .env file with .. (to be completed)
+- configure .env file with PORT, MONGO_URI & JWT_SECRET & JWT_LIFETIME
 - npm start
-- (to be completed)
+- connect with postman to localhost:5000

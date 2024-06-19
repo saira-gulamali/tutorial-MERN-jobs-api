@@ -1,16 +1,16 @@
-import React from "react";
-import { Route, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { useGlobalContext } from "../context/appContext";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useGlobalContext();
 
-  let navigate = useNavigate();
-
   if (!user) {
-    return navigate("/");
+    return <Navigate to="/" replace />;
   }
+
   return children;
+
   // return (
   //   <Route
   //     {...rest}
