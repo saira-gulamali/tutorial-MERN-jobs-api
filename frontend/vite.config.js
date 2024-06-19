@@ -6,7 +6,18 @@ export default defineConfig({
   plugins: [react()],
 });
 
-// proxy config: should only be used in dev but doesnt fix the cors issue!
+// proxy config: should only be used in dev !
+// v1 - worked
+// export default defineConfig({
+//   server: {
+//     proxy: {
+//       "/api": "http://localhost:5000",
+//     },
+//   },
+//   plugins: [react()],
+// });
+
+// v2 - didnt work
 // export default defineConfig({
 //   server: {
 //     proxy: {

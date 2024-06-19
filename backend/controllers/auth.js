@@ -5,11 +5,12 @@ const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   console.log(req.body);
-  const { email } = req.body;
+  // how to check if email has already been registered in controller
+  // const { email } = req.body;
 
-  const userEmail = await User.findOne({ email });
-  if (userEmail)
-    return res.status(400).json({ msg: "User already registered." });
+  // const userEmail = await User.findOne({ email });
+  // if (userEmail)
+  //   return res.status(400).json({ msg: "User already registered." });
 
   // how to check for empty values in controller
   // this is helpful to provide meaningful error messages
