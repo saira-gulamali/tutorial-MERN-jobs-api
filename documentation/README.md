@@ -18,3 +18,8 @@ to build the redoc-static file for any API project:
    npx @redocly/cli build-docs API-documentation.yaml
 8. this should create redoc-static.html
 9. run redoc-static.html in the browser
+
+## Postman config
+
+- open postman
+- import /postman/Node-Smilga 06-Jobs-API.postman_collection.json
