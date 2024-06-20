@@ -1,0 +1,256 @@
+{
+  "info": {
+    "name": "Node-Smilga 06-Jobs-API",
+    "description": "Taken from Node Course - John Smilga - Section 9 - Jobs API Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "register",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const jsonData = pm.response.json();\r",
+              "pm.collectionVariables.set(\"accessToken\", jsonData.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"bob1\",\r\n\"email\": \"bob1@gmail.com\",\r\n    \"password\":\"secret\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL_AUTH}}/register",
+          "host": ["{{URL_AUTH}}"],
+          "path": ["register"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "\r",
+              "\r",
+              "const jsonData = pm.response.json();\r",
+              "pm.collectionVariables.set(\"accessToken\", jsonData.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"bob1@gmail.com\",\r\n    \"password\":\"secret\"\r\n   \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL_AUTH}}/login",
+          "host": ["{{URL_AUTH}}"],
+          "path": ["login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get All Jobs",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjcxYjEwNGM4ZTQ5OTBiMDQ4MTNiMzMiLCJuYW1lIjoiYm9iMSIsImlhdCI6MTcxODcyOTYwNiwiZXhwIjoxNzIxMzIxNjA2fQ.SLoIhkfsY_rYDtHT1BvrrOaH2oyNESuzu5lc0Sqsouk",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{URL_JOBS}}",
+          "host": ["{{URL_JOBS}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get single job",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjcxYjEwNGM4ZTQ5OTBiMDQ4MTNiMzMiLCJuYW1lIjoiYm9iMSIsImlhdCI6MTcxODcyOTYwNiwiZXhwIjoxNzIxMzIxNjA2fQ.SLoIhkfsY_rYDtHT1BvrrOaH2oyNESuzu5lc0Sqsouk",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{URL_JOBS}}/6671c6122b3d6813e0f5454f",
+          "host": ["{{URL_JOBS}}"],
+          "path": ["6671c6122b3d6813e0f5454f"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create Job",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjcxYjEwNGM4ZTQ5OTBiMDQ4MTNiMzMiLCJuYW1lIjoiYm9iMSIsImlhdCI6MTcxODcyOTYwNiwiZXhwIjoxNzIxMzIxNjA2fQ.SLoIhkfsY_rYDtHT1BvrrOaH2oyNESuzu5lc0Sqsouk",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"company\":\"Amazon\",\r\n    \"position\":\"digital marketing\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL_JOBS}}",
+          "host": ["{{URL_JOBS}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update Job",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"company\": \"Netflix\",\r\n    \"position\": \"full stack developer\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL_JOBS}}/6671c417f2d1600a644d8395",
+          "host": ["{{URL_JOBS}}"],
+          "path": ["6671c417f2d1600a644d8395"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete Job",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{URL_JOBS}}/48648573w4",
+          "host": ["{{URL_JOBS}}"],
+          "path": ["48648573w4"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL_AUTH",
+      "value": "localhost:5000/api/v1/auth",
+      "type": "string"
+    },
+    {
+      "key": "URL_JOBS",
+      "value": "localhost:5000/api/v1/jobs",
+      "type": "string"
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    }
+  ]
+}
