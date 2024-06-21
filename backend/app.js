@@ -19,12 +19,13 @@ const jobsRouter = require("./routes/jobs");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
-app.set("trust proxy", 1); //enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx)
+// app.set("trust proxy", 1); //enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx)
 // see https://expressjs.com/en/guide/behind-proxies.html
 app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+    max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+    validate: true,
   })
 );
 app.use(express.json());
