@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(
   cors({
-    origin: [process.env.CORS_PRD],
+    origin: [process.env.CORS],
     credentials: true,
   })
 );
