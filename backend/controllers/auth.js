@@ -4,7 +4,7 @@ const { BadRequestError, UnauthenticatedError } = require("../errors");
 const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   // how to check if email has already been registered in controller
   // const { email } = req.body;
 
